@@ -1,0 +1,11 @@
+{
+    "name": "zk/yusui",
+    "description": "yusui-sdk",
+    "authors": [
+        {
+            "name": "zk",
+            "email": "1638523919@qq.com"
+        }
+    ],
+    "require": {}
+}
