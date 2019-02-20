@@ -2,7 +2,7 @@
 namespace yusui;
 
 /**
- * 鱼穗SDK工具类
+ * 工具类
  * Class Tools
  * @package yusui
  */

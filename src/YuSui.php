@@ -1,13 +1,12 @@
 <?php
 namespace yusui;
 
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use yusui\Tools;
 
 /**
  * 鱼穗SDK
  * Class YuSui
- * @package extend\yusui
+ * @package yusui
  */
 class YuSui
 {
