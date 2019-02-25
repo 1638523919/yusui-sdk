@@ -44,9 +44,10 @@ class Tools
         //返回结果
         if (!$result) {
             $error = curl_errno($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             echo(curl_error($ch));
             curl_close($ch);
-            throw new \Exception('curl出错，错误码:' . $error);
+            throw new \Exception('curl出错，错误码:' . $error . ',http code:' . $httpCode);
         }
         curl_close($ch);
         return $result;

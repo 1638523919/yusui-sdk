@@ -2,7 +2,7 @@
 namespace yusui;
 
 use yusui\Tools;
-
+include_once 'Tools.php';
 /**
  * 鱼穗SDK
  * Class YuSui
@@ -19,6 +19,7 @@ class YuSui
      */
     public function __construct()
     {
+        include_once 'Config.php';
         $this->appId = \yusui\Config::APP_ID;
         $this->appKey = \yusui\Config::APP_KEY;
         $this->apiDomain = \yusui\Config::API_DOMAIN;
@@ -39,7 +40,7 @@ class YuSui
         $param = ['phone' => $phone];
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
-        return json_encode($result, true);
+        return json_decode($result, true);
     }
 
     /**
@@ -65,7 +66,7 @@ class YuSui
         ];
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
-        return json_encode($result, true);
+        return json_decode($result, true);
     }
 
     /**
@@ -83,7 +84,7 @@ class YuSui
         $param = ['phone' => $phone];
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
-        return json_encode($result, true);
+        return json_decode($result, true);
     }
 
     /**
@@ -105,12 +106,15 @@ class YuSui
             throw new \Exception('参数错误');
         }
         $url = $this->apiDomain . '/open/package/send';
-        $data = [
+        $amountData = [
             'phone' => $phone,
             'type' => $type,
-            'amount' => $amount,
-            'desc' => $desc,
+            'amount' => $amount
         ];
+        if ($desc) {
+            $amountData['desc'] = $desc;
+        }
+        $data[] = $amountData;
         $param = [
             'out_no' => $outNo,
             'name' => $name,
@@ -121,7 +125,7 @@ class YuSui
         ];
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
-        return json_encode($result, true);
+        return json_decode($result, true);
     }
 
     /**
@@ -137,14 +141,14 @@ class YuSui
         if (!$no && !$outNo) {
             throw new \Exception('参数错误');
         }
-        $url = $this->apiDomain . '/open/packet/search';
+        $url = $this->apiDomain . '/open/package/search';
         $param = [
             'no' => $no,
             'out_no' => $outNo
         ];
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
-        return json_encode($result, true);
+        return json_decode($result, true);
     }
 
     /**
