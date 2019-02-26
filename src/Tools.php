@@ -4,7 +4,7 @@ namespace OrangeMan\YuSui;
 /**
  * 工具类
  * Class Tools
- * @package yusui
+ * @package OrangeMan\YuSui
  */
 class Tools
 {
@@ -12,12 +12,11 @@ class Tools
      * 以post方式提交data到对应的接口url
      * @param array $data 需要post的数据
      * @param $url
-     * @param bool $useCert 是否需要证书，默认不需要
      * @param int $second url执行超时时间，默认30s
      * @return mixed
      * @throws \Exception
      */
-    public static function postCurl(array $data, $url, $useCert = false, $second = 30)
+    public static function postCurl(array $data, $url, $second = 30)
     {
         $ch = curl_init();
         //设置超时
@@ -29,13 +28,6 @@ class Tools
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
         //要求结果为字符串且输出到屏幕上
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        if ($useCert == true) {
-            //设置证书：cert 与 key 分别属于两个.pem文件
-            curl_setopt($ch,CURLOPT_SSLCERTTYPE, 'PEM');
-            curl_setopt($ch,CURLOPT_SSLCERT, \think\yusui\Config::SSL_CERT_PATH);
-            curl_setopt($ch,CURLOPT_SSLKEYTYPE, 'PEM');
-            curl_setopt($ch,CURLOPT_SSLKEY, \think\yusui\Config::SSL_KEY_PATH);
-        }
         //post提交方式
         curl_setopt($ch, CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -68,7 +60,12 @@ class Tools
         return $str;
     }
 
-    #生成签名
+    /**
+     * 生成签名
+     * @param $param
+     * @param $appKey
+     * @return string
+     */
     public static function createSign($param, $appKey)
     {
         ksort($param);
@@ -80,6 +77,8 @@ class Tools
 
     /**
      * 格式化参数格式化成url参数
+     * @param $param
+     * @return string
      */
     public static function toUrlParams($param)
     {
@@ -90,7 +89,6 @@ class Tools
                 $buff .= $k . "=" . $v . "&";
             }
         }
-
         $buff = trim($buff, "&");
         return $buff;
     }

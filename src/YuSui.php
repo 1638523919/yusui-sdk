@@ -1,13 +1,11 @@
 <?php
 namespace OrangeMan\YuSui;
-
 use OrangeMan\YuSui\Tools;
-
-include_once 'Tools.php';
+use OrangeMan\YuSui\Config;
 /**
  * 鱼穗SDK
  * Class YuSui
- * @package yusui
+ * @package OrangeMan\YuSui
  */
 class YuSui
 {
@@ -20,10 +18,9 @@ class YuSui
      */
     public function __construct()
     {
-        include_once 'Config.php';
-        $this->appId = \think\yusui\Config::APP_ID;
-        $this->appKey = \think\yusui\Config::APP_KEY;
-        $this->apiDomain = \think\yusui\Config::API_DOMAIN;
+        $this->appId = Config::APP_ID;
+        $this->appKey = Config::APP_KEY;
+        $this->apiDomain = Config::API_DOMAIN;
     }
 
     /**
