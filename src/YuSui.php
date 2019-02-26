@@ -1,7 +1,7 @@
 <?php
-namespace yusui;
+namespace think\yusui;
 
-use yusui\Tools;
+use think\yusui\Tools;
 include_once 'Tools.php';
 /**
  * 鱼穗SDK
@@ -20,9 +20,9 @@ class YuSui
     public function __construct()
     {
         include_once 'Config.php';
-        $this->appId = \yusui\Config::APP_ID;
-        $this->appKey = \yusui\Config::APP_KEY;
-        $this->apiDomain = \yusui\Config::API_DOMAIN;
+        $this->appId = \think\yusui\Config::APP_ID;
+        $this->appKey = \think\yusui\Config::APP_KEY;
+        $this->apiDomain = \think\yusui\Config::API_DOMAIN;
     }
 
     /**

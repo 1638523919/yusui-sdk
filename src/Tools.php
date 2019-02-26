@@ -1,5 +1,5 @@
 <?php
-namespace yusui;
+namespace think\yusui;
 
 /**
  * 工具类
@@ -32,9 +32,9 @@ class Tools
         if ($useCert == true) {
             //设置证书：cert 与 key 分别属于两个.pem文件
             curl_setopt($ch,CURLOPT_SSLCERTTYPE, 'PEM');
-            curl_setopt($ch,CURLOPT_SSLCERT, \yusui\Config::SSL_CERT_PATH);
+            curl_setopt($ch,CURLOPT_SSLCERT, \think\yusui\Config::SSL_CERT_PATH);
             curl_setopt($ch,CURLOPT_SSLKEYTYPE, 'PEM');
-            curl_setopt($ch,CURLOPT_SSLKEY, \yusui\Config::SSL_KEY_PATH);
+            curl_setopt($ch,CURLOPT_SSLKEY, \think\yusui\Config::SSL_KEY_PATH);
         }
         //post提交方式
         curl_setopt($ch, CURLOPT_POST, TRUE);
