@@ -56,18 +56,20 @@ class YuSui
      * @return string
      * @throws \Exception
      */
-    public function bindUser($phone, $idCard, $realName, $dept)
+    public function bindUser($phone, $idCard, $realName, $dept = '')
     {
-        if (!$phone || !$idCard || !$realName || !$dept) {
+        if (!$phone || !$idCard || !$realName) {
             throw new \Exception('参数错误');
         }
         $url = $this->apiDomain . '/open/user/bind';
         $param = [
             'phone' => $phone,
             'idcard' => $idCard,
-            'realname' => $realName,
-            'dept' => $dept,
+            'realname' => $realName
         ];
+        if ($dept) {
+            $param['dept'] = $dept;
+        }
         $postData = $this->postDefaultData($param);
         $result = Tools::postCurl($postData, $url);
         return json_decode($result, true);
