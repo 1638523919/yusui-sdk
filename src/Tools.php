@@ -1,5 +1,5 @@
 <?php
-namespace orangeman\yusui;
+namespace OrangeMan\YuSui;
 
 /**
  * 工具类

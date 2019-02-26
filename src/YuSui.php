@@ -1,7 +1,7 @@
 <?php
-namespace orangeman\yusui;
+namespace OrangeMan\YuSui;
 
-use orangeman\yusui\Tools;
+use OrangeMan\YuSui\Tools;
 
 include_once 'Tools.php';
 /**
