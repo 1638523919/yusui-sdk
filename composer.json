@@ -1,0 +1,14 @@
+{
+    "name": "orangeman/yusui",
+    "description": "yusui sdk",
+    "authors": [
+        {
+            "name": "zk",
+            "email": "1638523919@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"OrangeMan\\YuSui\\": "src/"}
+    }
+}
