@@ -1,7 +1,6 @@
 <?php
 namespace OrangeMan\YuSui;
 use OrangeMan\YuSui\Tools;
-use OrangeMan\YuSui\Config;
 /**
  * 鱼穗SDK
  * Class YuSui
@@ -15,12 +14,19 @@ class YuSui
 
     /**
      * YuSui constructor.
+     * @param array $config
      */
-    public function __construct()
+    public function __construct($config = [])
     {
-        $this->appId = Config::APP_ID;
-        $this->appKey = Config::APP_KEY;
-        $this->apiDomain = Config::API_DOMAIN;
+        if ($config) {
+            $this->appId = $config['app_id'];
+            $this->appKey = $config['app_key'];;
+            $this->apiDomain = $config['api_domain'];
+        } else {
+            $this->appId = \OrangeMan\YuSui\Config::APP_ID;
+            $this->appKey = \OrangeMan\YuSui\Config::APP_KEY;
+            $this->apiDomain = \OrangeMan\YuSui\Config::API_DOMAIN;
+        }
     }
 
     /**
