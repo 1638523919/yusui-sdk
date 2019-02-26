@@ -1,5 +1,5 @@
 <?php
-namespace think\yusui;
+namespace OrangeMan\YuSui;
 
 /**
  * 工具类

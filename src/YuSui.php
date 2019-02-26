@@ -1,7 +1,8 @@
 <?php
-namespace think\yusui;
+namespace OrangeMan\YuSui;
 
-use think\yusui\Tools;
+use OrangeMan\YuSui\Tools;
+
 include_once 'Tools.php';
 /**
  * 鱼穗SDK
